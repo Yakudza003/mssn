@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSSN - Muslim Students Society of Nigeria | Unity Through Faith</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #ffffff 100%);
+            z-index: -1;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="80" fill="url(%23a)"><animate attributeName="cx" values="200;800;200" dur="25s" repeatCount="indefinite"/></circle><circle cx="800" cy="300" r="120" fill="url(%23a)"><animate attributeName="cy" values="300;700;300" dur="30s" repeatCount="indefinite"/></circle><circle cx="400" cy="600" r="100" fill="url(%23a)"><animate attributeName="cx" values="400;600;400" dur="20s" repeatCount="indefinite"/></circle></svg>') center/cover;
+            animation: float 35s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(-60px) rotate(240deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 30px rgba(45, 80, 22, 0.15);
+            border-bottom: 2px solid #2d5016;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2d5016;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            border-radius: 50%;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d5016;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: #2d5016;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(45, 80, 22, 0.3);
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 80, 22, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .arabic-text {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+            color: #e8f5e8;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: white;
+            color: #2d5016;
+            box-shadow: 0 5px 25px rgba(255,255,255,0.3);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Main Content */
+        main {
+            background: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, #f8fdf8, #e8f5e8);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(45, 80, 22, 0.1);
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(45, 80, 22, 0.3);
+        }
+
+        .about-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* Programs Section */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(45, 80, 22, 0.15);
+            border-color: #4a7c59;
+        }
+
+        .program-header {
+            height: 180px;
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .program-content {
+            padding: 2rem;
+        }
+
+        .program-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2d5016;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            animation: countUp 2s ease-out;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Activities Section */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(45, 80, 22, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #2d5016;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-image {
+            height: 150px;
+            background: linear-gradient(45deg, #2d5016, #4a7c59);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .activity-content {
+            padding: 1.5rem;
+        }
+
+        .activity-date {
+            color: #4a7c59;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .activity-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #2d5016;
+            font-weight: bold;
+        }
+
+        /* Islamic Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, #f8fdf8, #e8f5e8);
+            text-align: center;
+            padding: 4rem 5%;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #2d5016;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            line-height: 1.8;
+        }
+
+        .quote-source {
+            font-size: 1.1rem;
+            color: #4a7c59;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a3409;
+            color: white;
+            padding: 3rem 5% 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4a7c59;
+            font-size: 1.3rem;
+        }
+
+        .footer-section a {
+            color: #e8f5e8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #4a7c59;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #2d5016;
+            color: #e8f5e8;
+        }
+
+        /* Prayer Times Widget */
+        .prayer-times {
+            background: #2d5016;
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .prayer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .prayer-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .prayer-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .prayer-time {
+            font-size: 1.2rem;
+            color: #e8f5e8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section {
+                padding: 3rem 2rem;
+            }
+
+            .hero .arabic-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Islamic patterns */
+        .pattern-overlay {
+            position: relative;
+        }
+
+        .pattern-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(circle, rgba(45, 80, 22, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">☪</div>
+                MSSN Nigeria
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="logout-btn" onclick="handleLogout()">Sign Out</button>
+        </nav>
+    </header>
+
+    <section class="hero pattern-overlay" id="home">
+        <div class="hero-content">
+            <h1>بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</h1>
+            <div class="arabic-text">In the Name of Allah, the Most Gracious, the Most Merciful</div>
+            <h2 style="font-size: 2.5rem; margin: 1rem 0;">Muslim Students Society of Nigeria</h2>
+            <p>Uniting Muslim students across Nigeria through faith, education, and community service. Join us in building a stronger ummah and contributing to national development through Islamic values.</p>
+            <div class="cta-buttons">
+                <a href="#programs" class="cta-btn cta-primary">Join MSSN</a>
+                <a href="#activities" class="cta-btn cta-secondary">Our Activities</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="section" id="about">
+            <h2 class="section-title fade-in">About MSSN</h2>
+            <div class="about-grid">
+                <div class="about-card fade-in">
+                    <div class="about-icon">📖</div>
+                    <h3>Islamic Education</h3>
+                    <p>Promoting comprehensive Islamic education that combines spiritual development with academic excellence, preparing students to be leaders in all spheres of life.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-icon">🤝</div>
+                    <h3>Unity & Brotherhood</h3>
+                    <p>Fostering unity among Muslim students from diverse backgrounds, creating lasting bonds of brotherhood and sisterhood across Nigerian institutions.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-icon">🌟</div>
+                    <h3>Character Development</h3>
+                    <p>Building exemplary character based on Islamic principles, developing students who embody the teachings of the Quran and Sunnah in their daily lives.</p>
+                </div>
+                <div class="about-card fade-in">
+                    <div class="about-icon">🏛️</div>
+                    <h3>Community Service</h3>
+                    <p>Actively contributing to community development through various social programs, charity work, and initiatives that benefit all Nigerians regardless of faith.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="quote-text fade-in">
+                "And hold firmly to the rope of Allah all together and do not become divided. And remember the favor of Allah upon you - when you were enemies and He brought your hearts together and you became, by His favor, brothers."
+            </div>
+            <div class="quote-source fade-in">— Quran 3:103</div>
+        </section>
+
+        <section class="section stats">
+            <h2 class="section-title">MSSN Impact Nationwide</h2>
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">University Branches</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">100,000+</div>
+                    <div class="stat-label">Active Members</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Years of Service</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">36</div>
+                    <div class="stat-label">States Coverage</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="programs">
+            <h2 class="section-title fade-in">Our Core Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div class="program-header">📚</div>
+                    <div class="program-content">
+                        <h3 class="program-title">Islamic Studies & Da'wah</h3>
+                        <p>Comprehensive Islamic education programs including Quranic studies, Arabic language, Islamic jurisprudence, and effective da'wah methodologies.</p>
+                        <ul style="margin-top: 1rem; color: #4a7c59;">
+                            <li>Weekly Quranic Studies</li>
+                            <li>Arabic Language Classes</li>
+                            <li>Islamic History & Civilization</li>
+                            <li>Da'wah Training Programs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-header">🎓</div>
+                    <div class="program-content">
+                        <h3 class="program-title">Academic Excellence</h3>
+                        <p>Supporting academic achievement through tutorials, scholarships, and mentorship programs that help Muslim students excel in their studies.</p>
+                        <ul style="margin-top: 1rem; color: #4a7c59;">
+                            <li>Tutorial Sessions</li>
+                            <li>Scholarship Programs</li>
+                            <li>Academic Mentorship</li>
+                            <li>Career Guidance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-header">💚</div>
+                    <div class="program-content">
+                        <h3 class="program-title">Community Outreach</h3>
+                        <p>Organizing charity drives, medical outreaches, and community development projects that demonstrate Islamic values in action.</p>
+                        <ul style="margin-top: 1rem; color: #4a7c59;">
+                            <li>Medical Outreach Programs</li>
+                            <li>Charity & Zakat Distribution</li>
+                            <li>Educational Support</li>
+                            <li>Disaster Relief Efforts</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-header">⚡</div>
+                    <div class="program-content">
+                        <h3 class="program-title">Leadership Development</h3>
+                        <p>Training future leaders through leadership workshops, public speaking programs, and practical governance experiences within the society.</p>
+                        <ul style="margin-top: 1rem; color: #4a7c59;">
+                            <li>Leadership Workshops</li>
+                            <li>Public Speaking Training</li>
+                            <li>Project Management</li>
+                            <li>Team Building Activities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="prayer-times fade-in">
+                <h3 style="text-align: center; margin-bottom: 1rem;">Today's Prayer Times (Abuja)</h3>
+                <div class="prayer-grid">
+                    <div class="prayer-item">
+                        <div class="prayer-name">Fajr</div>
+                        <div class="prayer-time">5:15 AM</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-name">Dhuhr</div>
+                        <div class="prayer-time">12:30 PM</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-name">Asr</div>
+                        <div class="prayer-time">3:45 PM</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-name">Maghrib</div>
+                        <div class="prayer-time">6:20 PM</div>
+                    </div>
+                    <div class="prayer-item">
+                        <div class="prayer-name">Isha</div>
+                        <div class="prayer-time">7:30 PM</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="activities">
+            <h2 class="section-title fade-in">Recent Activities & Events</h2>
+            <div class="activities-grid">
+                <div class="activity-card fade-in">
+                    <div class="activity-image">🕌</div>
+                    <div class="activity-content">
+                        <div class="activity-date">Ramadan 1446 / March 2025</div>
+                        <h3 class="activity-title">National Iftar Program</h3>
+                        <p>Join us for our annual nationwide Iftar program bringing together Muslim students from across Nigeria for spiritual rejuvenation and unity.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in">
+                    <div class="activity-image">🎪</div>
+                    <div class="activity-content">
+                        <div class="activity-date">August 2025</div>
+                        <h3 class="activity-title">Annual MSSN Convention</h3>
+                        <p>Our biggest gathering of the year featuring Islamic lectures, workshops, cultural displays, and networking opportunities for all members.</p>
+                    </div>
+                </div>
+                <div class="activity-card fade-in">
+                    <div class="activity-image">🏥</div>
+                    <div class="activity-content">
+                        <div class="activity-date">July 2025</div>
+                        <h3 class="activity-title">Medical Outreach Initiative</h3>
+                        <p>Free medical services provided to underserved communities across Nigeria, embodying the Islamic principle of service to humanity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="branches">
+            <h2 class="section-title fade-in">Join Your Local MSSN Branch</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #4a7c59;">
+                    MSSN has active branches in universities, polytechnics, and colleges of education across all 36 states of Nigeria. Find your local branch and become part of our growing community.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div style="background: #f8fdf8; padding: 2rem; border-radius: 15px; border: 2px solid #e8f5e8;">
+                        <h4 style="color: #2d5016; margin-bottom: 1rem;">🎓 Universities</h4>
+                        <p>Active in 150+ universities nationwide</p>
+                        <p>Including UI, ABU, UNILAG, OAU, and more</p>
+                    </div>
+                    <div style="background: #f8fdf8; padding: 2rem; border-radius: 15px; border: 2px solid #e8f5e8;">
+                        <h4 style="color: #2d5016; margin-bottom: 1rem;">🏛️ Polytechnics</h4>
+                        <p>Present in major polytechnics</p>
+                        <p>Covering technical and vocational education</p>
+                    </div>
+                    <div style="background: #f8fdf8; padding: 2rem; border-radius: 15px; border: 2px solid #e8f5e8;">
+                        <h4 style="color: #2d5016; margin-bottom: 1rem;">📚 Colleges</h4>
+                        <p>Active in colleges of education</p>
+                        <p>Training future educators nationwide</p>
+                    </div>
+                </div>
+                <a href="#" class="cta-btn cta-primary" style="margin-top: 1rem;">Find Your Branch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact MSSN National</h3>
+                <p>📍 MSSN National Secretariat<br>Plot 123, Ahmadu Bello Way<br>Abuja, Nigeria</p>
+                <p>📞 +234 809 123 4567</p>
+                <p>✉️ info@mssnnigeria.org</p>
+                <p>🌐 www.mssnnigeria.org</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#about">About MSSN</a>
+                <a href="#programs">Our Programs</a>
+                <a href="#">Branch Directory</a>
+                <a href="#">Islamic Resources</a>
+                <a href="#">Prayer Times</a>
+                <a href="#">Event Calendar</a>
+            </div>
+            <div class="footer-section">
+                <h3>Islamic Resources</h3>
+                <a href="#">Quran Online</a>
+                <a href="#">Hadith Collections</a>
+                <a href="#">Islamic Library</a>
+                <a href="#">Prayer Calculator</a>
+                <a href="#">Islamic Calendar</a>
+                <a href="#">Qibla Direction</a>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <a href="#">📘 Facebook</a>
+                <a href="#">🐦 Twitter</a>
+                <a href="#">📸 Instagram</a>
+                <a href="#">📺 YouTube</a>
+                <a href="#">💬 WhatsApp Groups</a>
+                <a href="#">📱 Mobile App</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Muslim Students Society of Nigeria (MSSN). All rights reserved. | الحمد لله رب العالمين</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 30px rgba(45, 80, 22, 0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 30px rgba(45, 80, 22, 0.15)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Logout function
+        function handleLogout() {
+            if (confirm('Are you sure you want to sign out?')) {
+                alert('Barakallahu feeki! May Allah bless your journey. Assalamu alaikum!');
+                // window.location.href = '/login';
+            }
+        }
+
+        // Add interactive hover effects
+        document.querySelectorAll('.program-card, .activity-card, .about-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Animate statistics numbers
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const targets = ['500+', '100,000+', '50+', '36'];
+            
+            statNumbers.forEach((num, index) => {
+                let current = 0;
+                const targetNum = parseInt(targets[index].replace(/[^\d]/g, ''));
+                const increment = targetNum / 80;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= targetNum) {
+                        num.textContent = targets[index];
+                        clearInterval(timer);
+                    } else {
+                        if (targets[index].includes(',')) {
+                            num.textContent = Math.floor(current).toLocaleString() + (targets[index].includes('+') ? '+' : '');
+                        } else {
+                            num.textContent = Math.floor(current) + (targets[index].includes('+') ? '+' : '');
+                        }
+                    }
+                }, 30);
+            });
+        }
+
+        // Trigger number animation when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateNumbers();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        // Islamic typing effect with Arabic text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+
+        // Initialize typing effect after page load
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            typeWriter(heroTitle, originalText, 200);
+        });
+
+        // Prayer times update (mock function - in real app, this would fetch from API)
+        function updatePrayerTimes() {
+            const prayerTimes = {
+                fajr: '5:15 AM',
+                dhuhr: '12:30 PM',
+                asr: '3:45 PM',
+                maghrib: '6:20 PM',
+                isha: '7:30 PM'
+            };
+            
+            // Update prayer times display
+            document.querySelectorAll('.prayer-time').forEach((time, index) => {
+                const prayers = Object.values(prayerTimes);
+                time.textContent = prayers[index];
+            });
+        }
+
+        // Islamic date display (simplified)
+        function displayIslamicDate() {
+            const islamicMonths = [
+                'Muharram', 'Safar', 'Rabi\' al-awwal', 'Rabi\' al-thani',
+                'Jumada al-awwal', 'Jumada al-thani', 'Rajab', 'Sha\'ban',
+                'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'
+            ];
+            
+            // This is a simplified calculation - in real app, use proper Islamic calendar library
+            const today = new Date();
+            const islamicYear = 1446; // Current Hijri year (approximate)
+            const currentMonth = Math.floor(Math.random() * 12); // Random for demo
+            const currentDay = Math.floor(Math.random() * 29) + 1; // Random for demo
+            
+            console.log(`Islamic Date: ${currentDay} ${islamicMonths[currentMonth]} ${islamicYear} AH`);
+        }
+
+        // Call functions on page load
+        updatePrayerTimes();
+        displayIslamicDate();
+
+        // Add Islamic greeting on page interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add subtle Islamic patterns to background
+            const patterns = document.querySelectorAll('.pattern-overlay');
+            patterns.forEach(pattern => {
+                pattern.style.backgroundImage = `
+                    radial-gradient(circle at 20% 20%, rgba(45, 80, 22, 0.05) 2px, transparent 2px),
+                    radial-gradient(circle at 80% 80%, rgba(45, 80, 22, 0.05) 2px, transparent 2px)
+                `;
+                pattern.style.backgroundSize = '30px 30px';
+            });
+        });
+
+        // Add respectful interaction feedback
+        document.querySelectorAll('button, .cta-btn').forEach(element => {
+            element.addEventListener('click', function() {
+                // Add gentle animation for Islamic aesthetic
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Qibla direction compass (simplified demo)
+        function showQiblaDirection() {
+            // This would integrate with a proper Qibla API in a real application
+            const qiblaDirection = 45; // degrees from North (example for Nigeria)
+            console.log(`Qibla Direction: ${qiblaDirection}° from North`);
+            
+            // Could add visual compass here
+        }
+
+        // Mobile menu toggle (if needed)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Add Islamic calendar events reminder
+        const islamicEvents = {
+            'Laylat al-Qadr': 'Last 10 nights of Ramadan',
+            'Eid al-Fitr': '1 Shawwal',
+            'Eid al-Adha': '10 Dhu al-Hijjah',
+            'Day of Arafat': '9 Dhu al-Hijjah',
+            'Islamic New Year': '1 Muharram'
+        };
+
+        console.log('Upcoming Islamic Events:', islamicEvents);
+    </script>
+</body>
+</html>
