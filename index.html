@@ -61,11 +61,15 @@
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
-            padding: 1rem 5%;
+            padding: 1rem 1.2rem 1rem 0.7rem;
             max-width: 1200px;
             margin: 0 auto;
+            box-sizing: border-box;
+        }
+        .logo {
+            margin-right: 2.5rem;
         }
 
         .logo {
@@ -99,6 +103,9 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            margin-left: auto;
+            justify-content: flex-end;
+            align-items: center;
         }
 
         .nav-links a {
@@ -107,6 +114,14 @@
             font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
+        }
+        .nav-links a:hover {
+            color: #fff;
+            background: linear-gradient(90deg, #2d5016 0%, #4a7c59 50%, #f7c948 100%);
+            border-radius: 12px;
+            padding: 0.2rem 0.7rem;
+            box-shadow: 0 2px 12px rgba(247,201,72,0.18);
+            transition: background 0.3s, color 0.3s;
         }
 
         .nav-links a::after {
@@ -143,19 +158,55 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             position: relative;
+            margin-top: 80px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                margin-top: 110px;
+            }
         }
 
-        .hero-content {
-            max-width: 900px;
-            padding: 0 2rem;
-            animation: fadeInUp 1s ease-out;
+            .hero-content {
+                max-width: 900px;
+                width: 100%;
+                padding: 0 2rem;
+                margin: 0 auto;
+                animation: fadeInUp 1s ease-out;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-sizing: border-box;
+            }
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 0 0.5rem;
+                width: 100%;
+                max-width: 100vw;
+            }
+            .cta-buttons {
+                width: 100%;
+                margin-top: 1.2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .cta-btn {
+                width: 95vw;
+                max-width: 340px;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         @keyframes fadeInUp {
@@ -177,11 +228,16 @@
         }
 
         .hero .arabic-text {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: -1rem;
+            margin-bottom: 2rem;
             font-style: italic;
-            opacity: 0.9;
-            color: #e8f5e8;
+            opacity: 1;
+            color: #2d5016;
+            font-weight: 700;
+            background: rgba(255,255,255,0.85);
+            border-radius: 10px;
+            padding: 0.4rem 1rem;
+            display: inline-block;
         }
 
         .hero p {
@@ -243,7 +299,7 @@
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 3rem;
-            color: #2d5016;
+            color: #fff;
             position: relative;
         }
 
@@ -517,26 +573,90 @@
         }
 
         /* Responsive */
+        @media (max-width: 900px) {
+            .section {
+                padding: 2.5rem 1rem;
+            }
+            .about-grid, .programs-grid, .stats-grid, .activities-grid {
+                flex-direction: column !important;
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem !important;
+            }
+            .about-card, .about-grid > div {
+                max-width: 100% !important;
+                min-width: 0 !important;
+            }
+        }
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
+                display: none !important;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                flex-direction: column;
+                box-shadow: 0 8px 24px rgba(45,80,22,0.13);
+                z-index: 999;
             }
-            
+            .nav-links.show {
+                display: flex !important;
+            }
+            .drawer-btn {
+                display: flex !important;
+            }
+            nav {
+                padding: 1rem 1.2rem;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.1rem;
             }
-            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .about-card, .about-grid > div {
+                padding: 1.2rem !important;
+            }
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                width: 100%;
+                margin-top: 1.2rem;
+                z-index: 2;
             }
-            
-            .section {
-                padding: 3rem 2rem;
+            .cta-btn {
+                width: 90%;
+                max-width: 320px;
+                margin-bottom: 0.7rem;
+                font-size: 1.1rem;
+                display: block !important;
+                position: relative;
+                z-index: 10;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
-
             .hero .arabic-text {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+                color: #2d5016;
+                font-weight: 600;
+                background: rgba(255,255,255,0.7);
+                border-radius: 8px;
+                padding: 0.3rem 0.7rem;
+                display: inline-block;
+            }
+        }
+        @media (max-width: 500px) {
+            .section {
+                padding: 1.2rem 0.3rem;
+            }
+            .about-card, .about-grid > div {
+                padding: 0.7rem !important;
+            }
+            .logo {
+                font-size: 1rem;
             }
         }
 
@@ -579,6 +699,13 @@
                 <div class="logo-icon">☪</div>
                 MSSN ADUSTECH WUDIL 
             </a>
+            <button class="drawer-btn" style="display:none;background:none;border:none;outline:none;cursor:pointer;padding:0 0.7rem;align-items:center;justify-content:center;height:44px;">
+                <span style="display:block;width:32px;height:32px;position:relative;">
+                    <span style="position:absolute;top:8px;left:0;width:32px;height:4px;background:#2d5016;border-radius:2px;"></span>
+                    <span style="position:absolute;top:16px;left:0;width:32px;height:4px;background:#2d5016;border-radius:2px;"></span>
+                    <span style="position:absolute;top:24px;left:0;width:32px;height:4px;background:#2d5016;border-radius:2px;"></span>
+                </span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -587,7 +714,6 @@
                 <li><a href="#branches">Branches</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            
         </nav>
     </header>
 
@@ -605,28 +731,30 @@
     </section>
 
     <main>
+        <div id="notification-bar" style="width:100%;background:linear-gradient(90deg,#f7c948,#4a7c59);color:#fff;padding:0.7rem 0;text-align:center;font-size:1.15rem;font-weight:600;letter-spacing:1px;box-shadow:0 2px 12px rgba(45,80,22,0.09);border-radius:0 0 16px 16px;overflow:hidden;">
+            <marquee behavior="scroll" direction="left" scrollamount="7" style="width:100%;font-size:1.15rem;">
+                Welcome to MSSN ADUSTECH WUDIL! Stay tuned for important updates and announcements here.
+            </marquee>
+        </div>
         <section class="section" id="about">
-            <h2 class="section-title fade-in">About MSSN</h2>
-            <div class="about-grid">
-                <div class="about-card fade-in">
-                    <div class="about-icon">📖</div>
-                    <h3>Islamic Education</h3>
-                    <p>Promoting comprehensive Islamic education that combines spiritual development with academic excellence, preparing students to be leaders in all spheres of life.</p>
+            <h2 class="section-title fade-in" style="color:#2d5016;font-size:3.2rem;font-weight:800;">About MSSN</h2>
+            <div class="about-grid" style="display:flex;flex-wrap:wrap;align-items:flex-start;max-width:1100px;margin:0 auto;gap:2.5rem;">
+                <div style="flex:1 1 400px;min-width:260px;max-width:100%;display:flex;flex-direction:column;align-items:center;">
+                    <div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+                        <h3 style="text-align:center;color:#2d5016;font-size:2rem;font-weight:700;margin-bottom:1.2rem;letter-spacing:1px;">MSSN-ADUSTECH Structure</h3>
+                        <img src="1.jpg" alt="MSSN-ADUSTECH Structure" style="width:100%;height:100%;min-width:260px;min-height:420px;max-width:100%;max-height:720px;border-radius:22px;box-shadow:0 6px 32px rgba(45,80,22,0.22);margin-bottom:2rem;object-fit:cover;border:5px solid #2d5016;" />
+                        <a href="by law.pdf" target="_blank" style="display:inline-block;margin-top:0.5rem;padding:0.9rem 2.2rem;background:linear-gradient(135deg,#2d5016,#4a7c59);color:#fff;font-size:1.15rem;font-weight:600;border-radius:30px;text-decoration:none;box-shadow:0 4px 15px rgba(45,80,22,0.18);transition:background 0.3s;">
+                            BY-LAW OF MSSN-ADUSTECH
+                        </a>
+                    </div>
                 </div>
-                <div class="about-card fade-in">
-                    <div class="about-icon">🤝</div>
-                    <h3>Unity & Brotherhood</h3>
-                    <p>Fostering unity among Muslim students from diverse backgrounds, creating lasting bonds of brotherhood and sisterhood across Nigerian institutions.</p>
+                <div class="about-card fade-in" style="background:white;padding:2.5rem 2.5rem;border-radius:22px;box-shadow:0 2px 18px rgba(45,80,22,0.09);flex:1 1 400px;min-width:260px;max-width:100%;width:100%;">
+                    <h3 style="text-align:center;color:#2d5016;margin-bottom:1.2rem;font-size:1.35rem;">OVERVIEW OF MSSN-ADUSTECH</h3>
+                    <p style="font-size:1.13rem;line-height:1.7;margin-bottom:1.1rem;">The Muslim Students Society of Nigeria, Aliko Dangote University of Science and Technology Wudil Branch, popularly referred to as MSSN-ADUSTECH, aimed to bring all Muslims in closer union and inculcate in them the true Islamic spirit for the achievement of peace among the students.</p>
+                    <p style="font-size:1.13rem;line-height:1.7;margin-bottom:1.1rem;">The Society, for over decades, since the inauguration of the first Branch Executive Council members in May, 2001 of the then MSSN-KUT Branch; has become a united entity for all Muslim students and mind changer of many young ones, it continue to grow wax stronger through its activities. Thousands of students has became moral conscious, religious literate and academic exceptional thereby memorizing the Holy Qur’an, reciting its portions, mastering Ibadah, developing personality, first-rate graduates, and obtaining intellectual stability.</p>
+                    <p style="font-size:1.13rem;line-height:1.7;margin-bottom:1.1rem;">In ADUSTECH Wudil, the MSSN became the uniting point for all students in the university whose both males and females students give their maximum contribution towards the improvement of the society under various forums and committees operated under the umbrella of the society to help it achieve its goals and pre-determine objectives.</p>
                 </div>
-                <div class="about-card fade-in">
-                    <div class="about-icon">🌟</div>
-                    <h3>Character Development</h3>
-                    <p>Building exemplary character based on Islamic principles, developing students who embody the teachings of the Quran and Sunnah in their daily lives.</p>
-                </div>
-                <div class="about-card fade-in">
-                    <div class="about-icon">🏛️</div>
-                    <h3>Community Service</h3>
-                    <p>Actively contributing to community development through various social programs, charity work, and initiatives that benefit all Nigerians regardless of faith.</p>
+            </div>
                 </div>
             </div>
         </section>
@@ -661,7 +789,7 @@
         </section>
 
         <section class="section" id="programs">
-            <h2 class="section-title fade-in">Our Core Programs</h2>
+        
             <div class="programs-grid">
                 <div class="program-card fade-in">
                     <div class="program-header">📚</div>
@@ -746,6 +874,14 @@
         <section class="section" id="activities">
             <h2 class="section-title fade-in">Recent Activities & Events</h2>
             <div class="activities-grid">
+            </section>
+
+            <section class="section" id="mssn-programs">
+                <h2 class="section-title fade-in">🎯 MSSN Activities & Programs</h2>
+                <div class="slideshow-placeholder" style="width:100%;max-width:600px;margin:2rem auto;padding:2rem;background:#222;border-radius:1rem;text-align:center;color:#fff;box-shadow:0 2px 16px rgba(0,0,0,0.1);">
+                    <div style="font-size:2rem;margin-bottom:1rem;">🖼️</div>
+                    <p style="font-size:1.2rem;">Slideshow of MSSN activities will appear here.<br>Add images to your project folder to enable the slideshow.</p>
+                </div>
                 <div class="activity-card fade-in">
                     <div class="activity-image">🕌</div>
                     <div class="activity-content">
@@ -803,11 +939,11 @@
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Contact MSSN National</h3>
+                <h3>Contact MSSN ADUSTECH WUDIL</h3>
                 <p>📍 Secretariat<br>Sheikh Dr. Aminuddeen Abubakar Center<br>MSSN ADUSTECH WUDIL</p>
                 <p>📞 +234 809 123 4567</p>
-                <p>✉️ info@mssnnigeria.org</p>
-                <p>🌐 www.mssnnigeria.org</p>
+                <p>✉️ info@mssnadustechwudil.org</p>
+                <p>🌐 www.mssnadustechwudil.org</p>
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
@@ -837,7 +973,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Muslim Students Society of Nigeria (MSSN). All rights reserved. | الحمد لله رب العالمين</p>
+            <p>&copy; 2025 Muslim Students Society of Nigeria (MSSN ADUSTECH). All rights reserved. | الحمد لله رب العالمين</p>
         </div>
     </footer>
 
@@ -853,7 +989,26 @@
                         block: 'start'
                     });
                 }
+                // Hide drawer menu after click (mobile)
+                if(window.innerWidth <= 768){
+                    document.querySelector('.nav-links').classList.remove('show');
+                }
             });
+        });
+
+        // Drawer menu toggle for mobile
+        const drawerBtn = document.querySelector('.drawer-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if(drawerBtn && navLinks){
+            drawerBtn.addEventListener('click', function(){
+                navLinks.classList.toggle('show');
+            });
+        }
+        // Hide nav links on resize if desktop
+        window.addEventListener('resize', function(){
+            if(window.innerWidth > 768){
+                navLinks.classList.remove('show');
+            }
         });
 
         // Header background change on scroll
